@@ -37,10 +37,6 @@ type ActionName =
 interface GLTFAction extends THREE.AnimationClip {
   name: ActionName;
 }
-type ContextType = Record<
-  string,
-  React.ForwardRefExoticComponent<JSX.IntrinsicElements["mesh"]>
->;
 
 export function Ramen(props: JSX.IntrinsicElements["group"]) {
   const groupRef = useRef<THREE.Group>(null);
