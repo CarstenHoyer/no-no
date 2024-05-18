@@ -5,7 +5,7 @@ Files: ramen.glb [8.54MB] > /Users/Carsten.Hoyer/Workspace/no/public/ramen-trans
 */
 
 import * as THREE from "three";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useGLTF, PerspectiveCamera, useAnimations } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 
