@@ -13,8 +13,6 @@ type GLTFResult = GLTF & {
   nodes: {
     Cube004: THREE.Mesh;
     Cube004_1: THREE.Mesh;
-    Cube004: THREE.Mesh;
-    Cube004_1: THREE.Mesh;
     Sphere: THREE.Mesh;
     Sphere001: THREE.Mesh;
     Plane002: THREE.Mesh;
@@ -45,12 +43,12 @@ type ContextType = Record<
 >;
 
 export function Ramen(props: JSX.IntrinsicElements["group"]) {
-  const group = useRef<THREE.Group>();
+  const groupRef = useRef<THREE.Group>(null);
   const { nodes, materials, animations } = useGLTF(
     "/ramen-transformed.glb",
     "."
   ) as GLTFResult;
-  const { actions } = useAnimations(animations, group);
+  const { actions } = useAnimations(animations, groupRef);
 
   useEffect(() => {
     actions["Noodle.002Action"]?.play();
@@ -61,7 +59,7 @@ export function Ramen(props: JSX.IntrinsicElements["group"]) {
   }, [actions]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={groupRef} {...props} dispose={null}>
       <group name="Scene">
         <PerspectiveCamera
           name="Camera"
